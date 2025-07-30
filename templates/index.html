@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <title>RELATIONS</title>
+    <link rel="icon" href="{{ url_for('static', filename='top.jpg') }}">
+
+
+</head>
+<body bgcolor="black" style="color:white;">
+    <center>
+        <h1 style="color:blue;" >....STUDENT DATA EDITING PAGE....</h1>
+        
+        <form method="POST">
+            <h3 style="color:orange;">ADD STUDENTS</h3>
+            <table>
+            
+            <tr><td>
+            <label>Enter Student Name : </label>
+            </td>
+            <td><input type="text" placeholder="Enter Name" name="name"></input></td></tr>
+            <tr>
+                <td>
+            <label>Enter Student Age : </label>
+            </td>
+            <td><input type="number" name="age" placeholder="Enter Age"></input></td>
+            </tr>
+            <tr>
+                <td><label for="in">Enter Dipartment : </label></td>
+                <td><input list="department" id="in" name="dip" placeholder="Write Or Choose "></input></td>
+                <datalist id="department">
+                    <option value="CSE">
+                    <option value="ECE">
+                    <option value="EEE">
+                    <option vlaue="BME">
+                    <option value="B.TECH">
+                    <option value="AIDS">
+                    <option value="MECH">
+                    <option value="RA">
+                    <option value="AUTO">
+                    <option value="CIVIL">            
+            </tr>
+                <td><label>Enter Mobile Number : </label></td>
+                <td><input type="number" name="num" placeholder="Enter Mobile_Number"></input></td>
+            <tr>
+                
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit" name="action" value="add" style="background-color:red; color:white;">ADD</button></td>
+                
+            </tr>
+            <tr><hr></tr>
+            </table>
+            </form>
+            <hr>
+               
+            <form method="POST">
+                <h3 style="color:orange;" >DELETE STUDENT</h3>
+                <table>
+                <tr>
+                    <td><label>Enter Student Name To Delete : </label></td>
+                    <td><input type="text" name="dname" placeholder=" Name To Delete"></input></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" name="action" value="delete" style="background-color:red; color:white;">DELETE</button></td>
+                </tr>
+            </table>
+            </form>   
+            <hr style="color: #ff008cff;"> 
+            
+            <form method="POST">
+                {%if msg%}
+                    <h3 style="color: #fffb00ff;">{{msg}}</h3>
+                {%endif%}
+                <table border="1">
+                {%if li%}
+                <tr>
+                    <td style="color:blue;">Name</td>
+                    <td style="color:blue;" >Age</td>
+                    <td style="color:blue;" >Dipartment</td>
+                    <td style="color:blue;" >Mobile Number</td>
+                </tr>
+                {%for i in li%}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.age}}</td>
+                    <td>{{i.dipartment}}</td>
+                    <td>{{i.number}}</td>
+                    
+                </tr>
+                {%endfor%}
+                {%endif%}
+                
+            </table>
+                <br><br>
+            <td><button type="submit" name="action" value="show" style="background-color:red; color:blue;">👉🏻SHOW STUDENT DETAILES👈🏻</button></td>
+                
+
+            </form>
+
+
+    
+     
+    </center>
+</body>
